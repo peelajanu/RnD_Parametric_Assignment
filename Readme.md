@@ -66,8 +66,7 @@ The given equations were implemented in Python as:
 x = t*np.cos(theta) - np.exp(M*np.abs(t))*np.sin(0.3*t)*np.sin(theta) + X
 y = 42 + t*np.sin(theta) + np.exp(M*np.abs(t))*np.sin(0.3*t)*np.cos(theta)
 
-
-## 📊 3️⃣ Loss Function
+### **📊 3️⃣ Loss Function**
 
 To find the optimal parameters, an **L1 loss function** was used:
 
@@ -79,7 +78,7 @@ This measures the **total absolute deviation** between the predicted and observe
 
 ---
 
-## ⚙️ 4️⃣ Optimization
+### **⚙️ 4️⃣ Optimization**
 
 The optimization was performed using the `scipy.optimize.minimize()` function with the **L-BFGS-B** method.
 
@@ -94,7 +93,7 @@ The algorithm iteratively adjusted these parameters to **minimize the L1 distanc
 
 ---
 
-## 🎨 5️⃣ Visualization
+### **🎨 5️⃣ Visualization**
 
 The **fitted curve** was plotted against the actual data using `matplotlib`.
 
@@ -105,7 +104,7 @@ The close overlap between the two indicates a **strong fit**.
 
 ---
 
-## 📈 Final Optimized Values
+### **📈 Final Optimized Values**
 
 | Parameter | Symbol | Value |
 |------------|:-------:|:------:|
@@ -116,7 +115,7 @@ The close overlap between the two indicates a **strong fit**.
 
 ---
 
-## 🧠 Interpretation
+### **🧠 Interpretation**
 
 - **θ (theta):** defines the angular orientation of the curve.  
 - **M:** controls exponential scaling and oscillation amplitude (positive M adds upward curvature).  
@@ -126,7 +125,7 @@ Together, these parameters reproduce the observed shape with **excellent accurac
 
 ---
 
-## 📊 Visualization
+### **📊 Visualization**
 
 Below is the visualization of the fitted curve (from the Python output):
 
@@ -134,7 +133,7 @@ Below is the visualization of the fitted curve (from the Python output):
 
 ---
 
-## 🏁 Final Submission Equation (Desmos Format)
+### **🏁 Final Submission Equation (Desmos Format)**
 
 \[
 \left(
@@ -149,9 +148,10 @@ t \cdot \cos(0.4908)
 
 ---
 
-## ✅ Conclusion
+### **✅ Conclusion**
 
 By using **numerical optimization** and **parametric modeling**, the unknown variables **θ, M, X** were successfully determined such that the generated curve closely matches the provided dataset.
 
 
 ---
+
