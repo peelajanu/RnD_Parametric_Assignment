@@ -65,7 +65,7 @@ The given equations were implemented in Python as:
 ```python
 x = t*np.cos(theta) - np.exp(M*np.abs(t))*np.sin(0.3*t)*np.sin(theta) + X
 y = 42 + t*np.sin(theta) + np.exp(M*np.abs(t))*np.sin(0.3*t)*np.cos(theta)
-
+```
 ### **📊 3️⃣ Loss Function**
 
 To find the optimal parameters, an **L1 loss function** was used:
@@ -154,4 +154,5 @@ By using **numerical optimization** and **parametric modeling**, the unknown var
 
 
 ---
+
 
