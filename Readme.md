@@ -66,148 +66,92 @@ The given equations were implemented in Python as:
 x = t*np.cos(theta) - np.exp(M*np.abs(t))*np.sin(0.3*t)*np.sin(theta) + X
 y = 42 + t*np.sin(theta) + np.exp(M*np.abs(t))*np.sin(0.3*t)*np.cos(theta)
 
-3️⃣ Loss Function
 
-To find the optimal parameters, an L1 loss function was used:
+## 📊 3️⃣ Loss Function
 
-𝐿
-=
-∑
-∣
-𝑥
-𝑜
-𝑏
-𝑠
-−
-𝑥
-𝑝
-𝑟
-𝑒
-𝑑
-∣
-+
-∣
-𝑦
-𝑜
-𝑏
-𝑠
-−
-𝑦
-𝑝
-𝑟
-𝑒
-𝑑
-∣
-L=∑∣x
-obs
-	​
+To find the optimal parameters, an **L1 loss function** was used:
 
-−x
-pred
-	​
+\[
+L = \sum \left| x_{obs} - x_{pred} \right| + \left| y_{obs} - y_{pred} \right|
+\]
 
-∣+∣y
-obs
-	​
+This measures the **total absolute deviation** between the predicted and observed points.
 
-−y
-pred
-	​
+---
 
-∣
+## ⚙️ 4️⃣ Optimization
 
-This measures the total absolute deviation between the predicted and observed points.
+The optimization was performed using the `scipy.optimize.minimize()` function with the **L-BFGS-B** method.
 
-4️⃣ Optimization
+- **Parameter bounds** were defined based on given constraints.  
+- **Initial guesses:**
 
-The scipy.optimize.minimize() function was used with the L-BFGS-B method.
+\[
+\theta_0 = 25^\circ, \quad M_0 = 0.0, \quad X_0 = 10
+\]
 
-Parameter bounds were set based on the given constraints.
+The algorithm iteratively adjusted these parameters to **minimize the L1 distance** between the predicted and observed points.
 
-Initial guesses:
+---
 
-𝜃
-0
-=
-25
-∘
-,
-𝑀
-0
-=
-0.0
-,
-𝑋
-0
-=
-10
-θ
-0
-	​
+## 🎨 5️⃣ Visualization
 
-=25
-∘
-,M
-0
-	​
+The **fitted curve** was plotted against the actual data using `matplotlib`.
 
-=0.0,X
-0
-	​
+- 🔵 **Blue points:** observed data from the CSV  
+- 🔴 **Red curve:** model-predicted curve using optimized parameters  
 
-=10
+The close overlap between the two indicates a **strong fit**.
 
-The algorithm iteratively adjusted these parameters to minimize the L1 distance between the predicted and observed points.
+---
 
-5️⃣ Visualization
+## 📈 Final Optimized Values
 
-The fitted curve was plotted against the actual data using matplotlib.
+| Parameter | Symbol | Value |
+|------------|:-------:|:------:|
+| θ (radians) | θ | 0.490754 |
+| θ (degrees) | θ | 28.118153° |
+| M | M | 0.021387 |
+| X | X | 54.900078 |
 
-Blue points: observed data from the CSV.
+---
 
-Red curve: model-predicted curve using optimized parameters.
+## 🧠 Interpretation
 
-The close overlap between the two shows a strong fit.
+- **θ (theta):** defines the angular orientation of the curve.  
+- **M:** controls exponential scaling and oscillation amplitude (positive M adds upward curvature).  
+- **X:** shifts the entire curve along the x-axis.  
 
-| Parameter   | Symbol | Value      |
-| ----------- | ------ | ---------- |
-| θ (radians) | θ      | 0.490754   |
-| θ (degrees) | θ      | 28.118153° |
-| M           | M      | 0.021387   |
-| X           | X      | 54.900078  |
+Together, these parameters reproduce the observed shape with **excellent accuracy**.
 
-🧠 Interpretation
+---
 
-θ (theta) defines the angular orientation of the curve.
+## 📊 Visualization
 
-M controls the exponential scaling and oscillation amplitude (positive M adds upward curvature).
+Below is the visualization of the fitted curve (from the Python output):
 
-X shifts the entire curve along the x-axis.
+<img width="800" height="600" alt="Parametric_Curve_Fitting" src="https://github.com/user-attachments/assets/2671865e-c124-41cc-b7f4-cb24bcae09a5" />
 
-Together, these parameters reproduce the observed shape with excellent accuracy.
+---
 
-## Final Submission Equation:
+## 🏁 Final Submission Equation (Desmos Format)
 
-\left(t*\cos(0.4908)-e^{0.0214\left|t\right|}\cdot\sin(0.3t)\sin(0.4908)+54.9001,42+t*\sin(0.4908)+e^{0.0214\left|t\right|}\cdot\sin(0.3t)\cos(0.4908)\right)
+\[
+\left(
+t \cdot \cos(0.4908)
+- e^{0.0214|t|} \cdot \sin(0.3t)\sin(0.4908)
++ 54.9001,
+\quad
+42 + t \cdot \sin(0.4908)
++ e^{0.0214|t|} \cdot \sin(0.3t)\cos(0.4908)
+\right)
+\]
 
-## conclusion:
+---
 
-✅ Conclusion
+## ✅ Conclusion
 
-By using numerical optimization and parametric modeling,
-the unknown variables 
-𝜃
-,
-𝑀
-,
-𝑋
-θ,M,X were successfully determined such that
-the generated curve closely matches the provided dataset.
+By using **numerical optimization** and **parametric modeling**, the unknown variables **θ, M, X** were successfully determined such that the generated curve closely matches the provided dataset.
 
-This approach demonstrates:
 
-Proper mathematical modeling of nonlinear parametric systems,
-
-Application of optimization algorithms (scipy.optimize.minimize),
-
-And effective curve-fitting validation through visualization.
+---
